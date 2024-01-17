@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository
 {
-    internal class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
 
         private readonly ApplicationDbContext _db;
@@ -19,10 +19,8 @@ namespace Bulky.DataAccess.Repository
             _db = db;
         }
 
-        public void Save()
-        {
-            _db.SaveChanges();
-        }
+     
+
 
         public void Update(Category obj)
         {
