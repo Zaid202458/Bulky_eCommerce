@@ -5,7 +5,7 @@ using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BulkyWeb.Areas.Admin.Controllers
+namespace BulkyBook.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CategoryController : Controller

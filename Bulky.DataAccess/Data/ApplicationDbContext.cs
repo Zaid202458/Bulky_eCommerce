@@ -1,12 +1,11 @@
-﻿
-using Bulky.Models;
+﻿using Bulky.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Contracts;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 
 namespace Bulky.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -18,13 +17,15 @@ namespace Bulky.DataAccess.Data
 
         //public DbSet<Company> Companies { get; set; }
         //public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-        //public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         //public DbSet<OrderHeader> OrderHeaders { get; set; }
         //public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "Scifi", DisplayOrder = 2 },
