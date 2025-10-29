@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
 
-namespace BulkyBook.Areas.Customer.Controllers
+namespace BulkyWeb.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller

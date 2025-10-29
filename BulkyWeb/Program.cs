@@ -11,7 +11,11 @@ using Bulky.DataAccess.DbInitializer;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+#if DEBUG
+    .AddRazorRuntimeCompilation()
+#endif
+    ;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -57,6 +61,11 @@ app.UseSession();
 SeedDatabase();
 
 app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
