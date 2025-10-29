@@ -2,6 +2,11 @@
 
 Bulky is a sample eCommerce web app built with ASP.NET Core MVC, Entity Framework Core, Identity, and Stripe checkout. It uses Areas for `Admin`, `Customer`, and `Identity` and follows a clean repository + unit of work pattern.
 
+### What does the store do?
+- Customer users can browse products (books), view details, and add items to a shopping cart.
+- They can proceed through a checkout flow and pay using Stripe (test mode).
+- Admin users can manage the catalog (products, categories, images) and oversee orders from the Admin area.
+
 ### Prerequisites
 - .NET SDK 8.0 (installed). Verify:
 ```bash
